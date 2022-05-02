@@ -6,6 +6,7 @@ setInterval(() => {
     } else {
         alert('Вы победили в конкурсе!')
         clearInterval()
+        t.textContent = Number(60)
     }
 }, 1000)
 
