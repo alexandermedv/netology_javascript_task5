@@ -1,11 +1,11 @@
 
 const t=document.getElementById('timer');
-setInterval(() => {
+let timerId = setInterval(() => {
     if (Number(t.textContent) > 0) {
         t.textContent = Number(t.textContent) - 1
     } else {
         alert('Вы победили в конкурсе!')
-        clearInterval()
+        clearInterval(timerId)
         t.textContent = Number(60)
     }
 }, 1000)
