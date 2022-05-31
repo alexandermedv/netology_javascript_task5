@@ -1,36 +1,39 @@
-modal_main = document.getElementById('modal_main')
-modal_main.className += " modal_active";
-console.log(modal_main.className)
+modalMain = document.getElementById('modal_main')
+modalMain.className += " modal_active";
 
 collection = document.querySelectorAll('.modal__close')
-close_times = collection[0]
-console.log(close_times)
-close_times.onclick = () => {
-    modal_main.className -= " modal_active";
-    modal_main.style.display = 'none';
-}
+closeTimes = collection[0]
+// close_times.onclick = () => {
+//     modalMain.className -= " modal_active";
+//     modalMain.style.display = 'none';
+// }
 
-modal_success = document.getElementById('modal_success')
+modalSuccess = document.getElementById('modal_success')
 success = document.querySelector('.show-success')
 success.onclick = () => {
-    modal_success.className += " modal_active";
-    modal_main.className -= " modal_active";
-    modal_main.style.display = 'none';
+    modalSuccess.className += " modal_active";
+    modalMain.className -= " modal_active";
+    modalMain.style.display = 'none';
 }
 
 collection = document.querySelectorAll('.modal__close')
-console.log(collection)
-console.log(collection[2]) 
-
 close_times2 = collection[2]
-console.log(close_times2)
-close_times2.onclick = () => {
-    modal_success.className -= " modal_active";
-    modal_success.style.display = 'none';
-}
+// close_times2.onclick = () => {
+//     modalSuccess.className -= " modal_active";
+//     modalSuccess.style.display = 'none';
+// }
 
 done = document.querySelector('.btn_success')
 done.onclick = () => {
-    modal_success.className -= " modal_active";
-    modal_success.style.display = 'none';
+    modalSuccess.className -= " modal_active";
+    modalSuccess.style.display = 'none';
+}
+
+crosses = Array.from(document.querySelectorAll('.modal__close_times'));
+for (let i=0; i<crosses.length; i++) {
+    crosses[i].onclick = () => {
+        wind = crosses[i].closest('.modal')
+        wind.className -= " modal_active";
+        wind.style.display = 'none';
+    }
 }
