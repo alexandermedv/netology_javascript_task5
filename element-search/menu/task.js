@@ -1,71 +1,28 @@
 
-subMenuList = Array.from(document.querySelectorAll('.menu_sub'))
-console.log('subMenuList =', subMenuList)
+const subMenuList = Array.from(document.querySelectorAll('.menu_sub'))
 
-// for (i=0; i< subMenuList.length; i++) {
-//     console.log('i =', i)
-//     const link = subMenuList[i].closest('.menu__item').querySelector('.menu__link')
-//     console.log('link =', link)
+const link = [];
 
-//     console.log('i =', i)
+for (let i=0; i<subMenuList.length; i++) {
+    link[i] = subMenuList[i].closest('.menu__item').querySelector('.menu__link');
+}
 
-    
-//     submenu = subMenuList[i]
-    
-//     link.onclick = () => {
-//         console.log('i =', i)
+const open = [];
+for (let i=0; i<link.length; i++) {
+    link[i].onclick = () => {
 
-//         let open = document.querySelector(".menu_active")
-
-//         if (open) {
-//             open.className = open.className.replace(" menu_active", "")
-
-//             if (submenu.closest('.menu__item').querySelector('.menu__link').textContent !== open.closest('.menu__item').querySelector('.menu__link').textContent) {
-//                 submenu.className += " menu_active";
-//             }
-//         } else {
-//             console.log('i =', i)
-//             console.log('subMenuList[i] =', submenu)
-//             submenu.className += " menu_active";
-//         }
-
-//         return false
-//     }
-// }
-
-link1 = subMenuList[0].closest('.menu__item').querySelector('.menu__link')
-link2 = subMenuList[1].closest('.menu__item').querySelector('.menu__link')
-
-link1.onclick = () => {
-
-            let open = document.querySelector(".menu_active")
-
-            if (open) {
-                open.className = open.className.replace(" menu_active", "")
-
-                if (subMenuList[0].closest('.menu__item').querySelector('.menu__link').textContent !== open.closest('.menu__item').querySelector('.menu__link').textContent) {
-                subMenuList[0].className += " menu_active";
+                    open[i] = document.querySelector(".menu_active")
+        
+                    if (open[i]) {
+                        open[i].className = open[i].className.replace(" menu_active", "")
+        
+                        if (subMenuList[i].closest('.menu__item').querySelector('.menu__link').textContent !== open[i].closest('.menu__item').querySelector('.menu__link').textContent) {
+                        subMenuList[i].className += " menu_active";
+                        }
+                    } else {
+                        subMenuList[i].className += " menu_active";
+                    }
+        
+                    return false
                 }
-            } else {
-                subMenuList[0].className += " menu_active";
-            }
-
-            return false
-        }
-    
-link2.onclick = () => {
-
-    let open = document.querySelector(".menu_active")
-
-    if (open) {
-        open.className = open.className.replace(" menu_active", "")
-
-        if (subMenuList[1].closest('.menu__item').querySelector('.menu__link').textContent !== open.closest('.menu__item').querySelector('.menu__link').textContent) {
-        subMenuList[1].className += " menu_active";
-        }
-    } else {
-        subMenuList[1].className += " menu_active";
-    }
-
-    return false
 }
