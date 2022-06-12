@@ -9,7 +9,7 @@ for (let i=0; i<subMenuList.length; i++) {
 
 const open = [];
 for (let i=0; i<link.length; i++) {
-    link[i].querySelector(".dropdown__link").onclick = () => {
+    link[i].onclick = () => {
 
                     open[i] = document.querySelector(".menu_active")
         
