@@ -24,6 +24,23 @@ class Game {
       В случае правильного ввода слова вызываем this.success()
       При неправильном вводе символа - this.fail();
      */
+
+    const text = document.getElementById('game')
+
+    function onKey(e) {
+        const current = this.currentSymbol
+        console.log('this.currentSymbol =', this.current)
+        console.log('e.key =', e.key)
+        if (this.current === e.key) {
+            console.log('success')
+            return this.success
+        } else {
+            console.log('fail')
+            return this.fail
+        }
+    }
+    console.log('Игра началась')
+    document.addEventListener('keydown', onKey)
   }
 
   success() {
