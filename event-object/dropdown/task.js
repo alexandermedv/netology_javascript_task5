@@ -16,7 +16,6 @@ function onClick() {
 }
 
 const btn = document.querySelector(".dropdown__value");
-console.log('btn =', btn);
 btn.addEventListener('click', onClick);
 
 itemList = Array.from(btn.closest(".dropdown").querySelector(".dropdown__list").querySelectorAll(".dropdown__item"));
@@ -28,7 +27,5 @@ for (let i=0; i<itemList.length; i++) {
 
 for (let i=0; i<items.length; i++) {
     value = items[i].textContent;
-    console.log('items[i] =', items[i])
-    console.log('value =', value);
     items[i].addEventListener('click', onClick);
 }
