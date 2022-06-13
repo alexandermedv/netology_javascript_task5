@@ -29,7 +29,7 @@ class Game {
 
     function onKey(e) {
         const current = this.currentSymbol
-        console.log('this.currentSymbol =', this.current)
+        console.log('this.currentSymbol =', this.currentSymbol)
         console.log('e.key =', e.key)
         if (this.current === e.key) {
             console.log('success')
@@ -40,7 +40,7 @@ class Game {
         }
     }
     console.log('Игра началась')
-    document.addEventListener('keydown', onKey)
+    document.addEventListener('keyup', onKey)
   }
 
   success() {
