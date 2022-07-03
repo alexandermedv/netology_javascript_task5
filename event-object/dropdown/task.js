@@ -11,6 +11,7 @@ function onClick() {
     } else {
         dropdownList.className += " dropdown__list_active"; 
     }
+    event.preventDefault();
     
     return false;
 }
