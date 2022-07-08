@@ -25,22 +25,21 @@ class Game {
       При неправильном вводе символа - this.fail();
      */
 
-    const text = document.getElementById('game')
+    let that = this;
+    let word = this.wordElement
+
+    for (let i=0; i< word.textContent.length; i++) {
+      document.addEventListener('keyup', onKey)
+    }
 
     function onKey(e) {
-        const current = this.currentSymbol
-        console.log('this.currentSymbol =', this.currentSymbol)
-        console.log('e.key =', e.key)
-        if (this.current === e.key) {
-            console.log('success')
-            return this.success
+        const current = that.currentSymbol.textContent
+        if (current === e.key) {
+            return that.success()
         } else {
-            console.log('fail')
-            return this.fail
+            return that.fail()
         }
     }
-    console.log('Игра началась')
-    document.addEventListener('keyup', onKey)
   }
 
   success() {
