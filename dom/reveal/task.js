@@ -1,19 +1,14 @@
-
-function show(element){ 
-    setInterval(() => {
-    const {top, bottom} = element.getBoundingClientRect();
-    if ((bottom>0) && (top < window.innerHeight) && !(element.className.includes('reveal_active'))) {
-        element.className += ' reveal_active'
+window.addEventListener('scroll', function() {
+    const divArray=Array.from(document.querySelectorAll('.reveal'))
+    
+    for (let i=0; i< divArray.length; i++) {
+        const {top, bottom} = divArray[i].getBoundingClientRect();
+        
+        if ((bottom>0) && (top < window.innerHeight) && !(divArray[i].className.includes('reveal_active'))) {
+            divArray[i].className += ' reveal_active'
+        }
+        if ((bottom<0 || top > window.innerHeight) && (divArray[i].className.includes('reveal_active'))) {
+            divArray[i].className = divArray[i].className.replace(' reveal_active', '')
+        }
     }
-    if ((bottom<0 || top > window.innerHeight) && (element.className.includes('reveal_active'))) {
-        element.className = element.className.replace(' reveal_active', '')
-    }
-}, 1000)
-}
-
-
-const divArray=Array.from(document.querySelectorAll('.reveal'))
-
-for (let i=0; i< divArray.length; i++) {
-    show(divArray[i])
-}
+  });
